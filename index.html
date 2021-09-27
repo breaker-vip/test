@@ -1,26 +1,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0090)http://103.83.44.7/mnks/main/web/trainAction.do?method=toMnks&tradeSort=100614&tflag=tflag -->
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK"><script type="text/javascript" src="./index_files/jquery-1.7.2.min.js.ÏÂÔØ"></script>
-<script type="text/javascript" src="./index_files/publics.js.ÏÂÔØ"></script>
-<script type="text/javascript" src="./index_files/page.js.ÏÂÔØ"></script>
-<script type="text/javascript" src="./index_files/idcard-util.js.ÏÂÔØ"></script>
-<script type="text/javascript" src="./index_files/area.js.ÏÂÔØ"></script>
-<script type="text/javascript" src="./index_files/dept.js.ÏÂÔØ"></script>
-<script type="text/javascript" src="./index_files/WdatePicker.js.ÏÂÔØ"></script><link href="./index_files/WdatePicker.css" rel="stylesheet" type="text/css">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK"><script type="text/javascript" src="./index_files/jquery-1.7.2.min.js.ä¸‹è½½"></script>
+<script type="text/javascript" src="./index_files/publics.js.ä¸‹è½½"></script>
+<script type="text/javascript" src="./index_files/page.js.ä¸‹è½½"></script>
+<script type="text/javascript" src="./index_files/idcard-util.js.ä¸‹è½½"></script>
+<script type="text/javascript" src="./index_files/area.js.ä¸‹è½½"></script>
+<script type="text/javascript" src="./index_files/dept.js.ä¸‹è½½"></script>
+<script type="text/javascript" src="./index_files/WdatePicker.js.ä¸‹è½½"></script><link href="./index_files/WdatePicker.css" rel="stylesheet" type="text/css">
 
 
 
 
-	<title>±±¾©ÊĞ°²È«Éú²ú¼à¹ÜĞÅÏ¢Æ½Ì¨ °²È«Éú²úÅàÑµ¿¼ºË×ÛºÏÒµÎñ¹ÜÀíÏµÍ³</title>
-	<script type="text/javascript" src="./index_files/jquery-1.4.2.min.js.ÏÂÔØ"></script>
-	<script type="text/javascript" src="./index_files/function_sub.js.ÏÂÔØ"></script>
-	<script type="text/javascript" src="./index_files/calendar.js.ÏÂÔØ"></script>
-	<script language="JavaScript" src="./index_files/publics.js(1).ÏÂÔØ"></script>
+	<title>åŒ—äº¬å¸‚å®‰å…¨ç”Ÿäº§ç›‘ç®¡ä¿¡æ¯å¹³å° å®‰å…¨ç”Ÿäº§åŸ¹è®­è€ƒæ ¸ç»¼åˆä¸šåŠ¡ç®¡ç†ç³»ç»Ÿ</title>
+	<script type="text/javascript" src="./index_files/jquery-1.4.2.min.js.ä¸‹è½½"></script>
+	<script type="text/javascript" src="./index_files/function_sub.js.ä¸‹è½½"></script>
+	<script type="text/javascript" src="./index_files/calendar.js.ä¸‹è½½"></script>
+	<script language="JavaScript" src="./index_files/publics.js(1).ä¸‹è½½"></script>
 
 	<link href="./index_files/ts2.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript">
 		
-    //ÑéÖ¤ÊÖ»úºÅÊÇ·ñÎª11Î»
+    //éªŒè¯æ‰‹æœºå·æ˜¯å¦ä¸º11ä½
     function validatePhone(){
     	var phone = document.getElementById("phone").value;
     	var phoneHit = document.getElementById("phoneHit");
@@ -28,10 +28,10 @@
     	if(phone.length == 0){
     		return bo;
     	}else if(isNaN(phone)){
-    		phoneHit.innerHTML="<span class='word_2'>&nbsp;ÄúÊäÈëµÄÊÖ»ú¸ñÊ½²»ÕıÈ·£¬ÇëÖØĞÂÊäÈë¡£</span>";
+    		phoneHit.innerHTML="<span class='word_2'>&nbsp;æ‚¨è¾“å…¥çš„æ‰‹æœºæ ¼å¼ä¸æ­£ç¡®ï¼Œè¯·é‡æ–°è¾“å…¥ã€‚</span>";
     		bo = false;
     	}else if(phone.length != 11){
-    		phoneHit.innerHTML="<span class='word_2'>&nbsp;ÄúÊäÈëµÄÊÖ»úÎ»Êı²»¶Ô£¬ÇëÖØĞÂÊäÈë¡£</span>";
+    		phoneHit.innerHTML="<span class='word_2'>&nbsp;æ‚¨è¾“å…¥çš„æ‰‹æœºä½æ•°ä¸å¯¹ï¼Œè¯·é‡æ–°è¾“å…¥ã€‚</span>";
     		bo = false;
     	}else{
     		phoneHit.innerHTML="<span class='success'>&nbsp;</span>";
@@ -40,18 +40,18 @@
     	return bo;
     }
 	    
-        //ÑéÖ¤ĞÕÃû
+        //éªŒè¯å§“å
     function validateName(){
     	var name = document.getElementById("name").value;		    	
     	var nameHit = document.getElementById("nameHit");
-    	var patrn = /^\s*[A-Za-z\u4e00-\u9fa5]{1,}[A-Za-z\u4e00-\u9fa5.¡¤]{0,15}[A-Za-z\u4e00-\u9fa5]{1,}\s*$/;
+    	var patrn = /^\s*[A-Za-z\u4e00-\u9fa5]{1,}[A-Za-z\u4e00-\u9fa5.Â·]{0,15}[A-Za-z\u4e00-\u9fa5]{1,}\s*$/;
     	var bo = true;
     	if(name.length == 0){
-    		alert("ÄúÃ»ÓĞÊäÈëĞÕÃû£¡");
-    		nameHit.innerHTML="<span class='info'>&nbsp;</span>ÇëÊäÈëÖ¤¼şÉÏµÄĞÕÃû";
+    		alert("æ‚¨æ²¡æœ‰è¾“å…¥å§“åï¼");
+    		nameHit.innerHTML="<span class='info'>&nbsp;</span>è¯·è¾“å…¥è¯ä»¶ä¸Šçš„å§“å";
     		bo = false;
     	}else if(!patrn.exec(name)){
-    		nameHit.innerHTML="<span class='word_2'>&nbsp;ÄúÊäÈëµÄĞÕÃû¸ñÊ½ÓĞÎó£¬ÇëÖØĞÂÊäÈë¡£</span>";
+    		nameHit.innerHTML="<span class='word_2'>&nbsp;æ‚¨è¾“å…¥çš„å§“åæ ¼å¼æœ‰è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥ã€‚</span>";
     		bo = false;
     	}else {
     		nameHit.innerHTML="<span class='success'>&nbsp;</span>";
@@ -60,7 +60,7 @@
   		return bo;
     }
 	    
-    //ÑéÖ¤Éí·İÖ¤
+    //éªŒè¯èº«ä»½è¯
     function validateCertificateNumber(){
     	var regForm = document.regForm;
     	var certificateNumber = document.getElementById("certificateNumber").value;		    	
@@ -70,30 +70,30 @@
     	var certificateType  = $("select[name=certificateType][@selected]").val();
 		
     	if(certificateNumber.length == 0){
-    		alert("ÇëÊäÈëÖ¤¼şºÅÂë");
-    		certificateNumberHit.innerHTML="<span class='info'>&nbsp;</span>ÇëÊäÈëÖ¤¼şºÅÂë";
+    		alert("è¯·è¾“å…¥è¯ä»¶å·ç ");
+    		certificateNumberHit.innerHTML="<span class='info'>&nbsp;</span>è¯·è¾“å…¥è¯ä»¶å·ç ";
     		bo =  false;
-    	}else if(certificateType != 1717){ //Èç¹ûÎª·ÇÉí·İÖ¤ÀàĞÍ£¬ÎŞĞèÑéÖ¤¸ñÊ½
+    	}else if(certificateType != 1717){ //å¦‚æœä¸ºéèº«ä»½è¯ç±»å‹ï¼Œæ— éœ€éªŒè¯æ ¼å¼
     		bo = true;
     		certificateNumberHit.innerHTML="<span class='success'>&nbsp;</span>";
 		}else if(!isIdCard(document.getElementById("certificateNumber"))){
-        	certificateNumberHit.innerHTML="<span class='word_2'>&nbsp;ÄúÊäÈëµÄÉí·İÖ¤¸ñÊ½ÓĞÎó£¬ÇëÖØĞÂÊäÈë¡£</span>";
+        	certificateNumberHit.innerHTML="<span class='word_2'>&nbsp;æ‚¨è¾“å…¥çš„èº«ä»½è¯æ ¼å¼æœ‰è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥ã€‚</span>";
     		bo = false;		    		
     	}
     	return bo;	
     }
 	    
-    //ÑéÖ¤Éí·İÀàĞÍ
+    //éªŒè¯èº«ä»½ç±»å‹
     $(function(){
     	$("select[name=certificateType]").bind("change",function(){
     		var certificateType  = $("select[name=certificateType][@selected]").val();
     		if(certificateType == ''){
-    			$("#certificateTypeHit").html("<span class='info'>&nbsp;</span>ÇëÑ¡ÔñÖ¤¼şÀàĞÍ ¡£");	
+    			$("#certificateTypeHit").html("<span class='info'>&nbsp;</span>è¯·é€‰æ‹©è¯ä»¶ç±»å‹ ã€‚");	
     			return false;	    			
     		}else{
 	    		$("#certificateTypeHit").html("<span class='success'>&nbsp;</span>");
 	    		if(certificateType == '1717'){
-	    			$("#certificateNumberHit").html("<span class='info'>&nbsp;ÇëÊäÈëÉí·İÖ¤¼şºÅÂë£¬Éí·İÖ¤¼şºÅÂë²»³¬¹ı18Î»¡£</span>");
+	    			$("#certificateNumberHit").html("<span class='info'>&nbsp;è¯·è¾“å…¥èº«ä»½è¯ä»¶å·ç ï¼Œèº«ä»½è¯ä»¶å·ç ä¸è¶…è¿‡18ä½ã€‚</span>");
 	    		}else{
 	    			$("#certificateNumberHit").html("<span class='success'>&nbsp;</span>");
 		    	}
@@ -102,7 +102,7 @@
     	})
     });
     
-    //ÑéÖ¤ÓÊÏä
+    //éªŒè¯é‚®ç®±
     function checkEmail(){
 	    var email = document.regForm.email.value;
         var emailHit = document.getElementById("emailHit");;
@@ -111,13 +111,13 @@
 		if(email.length == 0){		
 			return bo;
 		}else if (email.length <0||!isEmail(email)||email.length>50) {	
-	        emailHit.innerHTML="<span class='word_2'>&nbsp;ÓÊÏä²»·ûºÏ¹æ·¶¡£</span>";
+	        emailHit.innerHTML="<span class='word_2'>&nbsp;é‚®ç®±ä¸ç¬¦åˆè§„èŒƒã€‚</span>";
 	        bo = false;
 	    }
         return bo;
     }
 	    
-	//ÑéÖ¤EMAIL
+	//éªŒè¯EMAIL
 	function isEmail(val){
 	    var pass=0;
 	    if (window.RegExp){
@@ -139,7 +139,7 @@
 		var regForm = document.getElementById("regForm");
 		if(!validateName())return false;
 		if(regForm.certificateType.value == ''){
-			alert("ÇëÑ¡ÔñÖ¤¼şÀàĞÍ");
+			alert("è¯·é€‰æ‹©è¯ä»¶ç±»å‹");
 			return false;
 		}
 		if(!validateCertificateNumber())return false;
@@ -181,7 +181,7 @@
 				<table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="zc_tab">
 					<tbody><tr>
 						<td width="11%" height="45" align="center" class="word_4">
-							ĞÕ Ãû£º
+							å§“ åï¼š
 						</td>
 						<td width="22%" align="left">
 							<input type="text" name="name" id="name">
@@ -189,23 +189,23 @@
 						<td width="67%" align="left" class="word_5">
 							<span class="word_2">*</span>
 							<p id="nameHit" style="display: inline">
-								<span class="info">&nbsp;</span>ÇëÊäÈëÖ¤¼şÉÏµÄĞÕÃû</p>
+								<span class="info">&nbsp;</span>è¯·è¾“å…¥è¯ä»¶ä¸Šçš„å§“å</p>
 						</td>
 					</tr>
 					<tr class="td_1">
 						<td height="45" align="center" class="word_4">
-							Ö¤¼şÀàĞÍ£º
+							è¯ä»¶ç±»å‹ï¼š
 						</td>
 						<td align="left">
 							<select name="certificateType" style="width:180px" class="select">
-<option value="">---ÇëÑ¡Ôñ---</option>
-<option value="1717">ÄÚµØ¾ÓÃñÉí·İÖ¤</option>
-<option value="1718">¾ü¹ÙÖ¤</option>
-<option value="1719">»¤ÕÕ</option>
-<option value="1720">Ïã¸Û¾ÓÃñÉí·İÖ¤</option>
-<option value="1721">°ÄÃÅ¾ÓÃñÉí·İÖ¤</option>
-<option value="1722">Ì¨Íå¾ÓÃñÉí·İÖ¤</option>
-<option value="1723">ÆäËûÖ¤¼ş</option>
+<option value="">---è¯·é€‰æ‹©---</option>
+<option value="1717">å†…åœ°å±…æ°‘èº«ä»½è¯</option>
+<option value="1718">å†›å®˜è¯</option>
+<option value="1719">æŠ¤ç…§</option>
+<option value="1720">é¦™æ¸¯å±…æ°‘èº«ä»½è¯</option>
+<option value="1721">æ¾³é—¨å±…æ°‘èº«ä»½è¯</option>
+<option value="1722">å°æ¹¾å±…æ°‘èº«ä»½è¯</option>
+<option value="1723">å…¶ä»–è¯ä»¶</option>
 </select>
 
 
@@ -213,12 +213,12 @@
 						<td align="left" class="word_5">
 							<span class="word_2">*</span>
 							<p id="certificateTypeHit" style="display: inline">
-								<span class="info">&nbsp;</span>ÇëÑ¡ÔñÖ¤¼şÀàĞÍ</p>
+								<span class="info">&nbsp;</span>è¯·é€‰æ‹©è¯ä»¶ç±»å‹</p>
 						</td>
 					</tr>
 					<tr>
 						<td height="45" align="center" class="word_4">
-							Ö¤ ¼ş ºÅ£º
+							è¯ ä»¶ å·ï¼š
 						</td>
 						<td align="left">
 							<input type="text" name="certificateNumber" id="certificateNumber">
@@ -232,36 +232,36 @@
 					<!--
 					<tr class="td_1">
 						<td height="45" align="center" class="word_4">
-							ÊÖ »ú ºÅ£º
+							æ‰‹ æœº å·ï¼š
 						</td>
 						<td align="left">
 							<input type="text" name="phone" id="phone" />
 						</td>
 						<td align="left" class="word_5">
 							<p id="phoneHit" style="display: inline">
-								<span class='info'>&nbsp;</span>ÇëÊäÈëÊÖ»úºÅ</p>
+								<span class='info'>&nbsp;</span>è¯·è¾“å…¥æ‰‹æœºå·</p>
 						</td>
 					</tr>
 					<tr>
 						<td height="45" align="center" class="word_4">
-							µç×ÓÓÊÏä£º
+							ç”µå­é‚®ç®±ï¼š
 						</td>
 						<td align="left">
 							<input type="text" name="email" id="email">
 						</td>
 						<td width="67%" align="left" class="word_5">
 							<p id="emailHit" style="display: inline">
-								<span class='info'>&nbsp;</span>ÇëÊäÈëÓÊÏä</p>
+								<span class='info'>&nbsp;</span>è¯·è¾“å…¥é‚®ç®±</p>
 						</td>
 					</tr>
 					-->
 				</tbody></table>
 				<div class="d1" style="margin-top: 5px;text-align: center;">
-					<span style="color: red; float: center;line-height:22px;font-size:12px;">ÌáÊ¾£º¸ÃÄ£Äâ¿¼ÊÔ×¨ÓÃÓÚÄ£Äâ¿¼ÊÔ»·¾³£¬±ãÓÚ¿¼ÉúÊìÏ¤»ú¿¼²Ù×÷¡£</span>
+					<span style="color: red; float: center;line-height:22px;font-size:12px;">æç¤ºï¼šè¯¥æ¨¡æ‹Ÿè€ƒè¯•ä¸“ç”¨äºæ¨¡æ‹Ÿè€ƒè¯•ç¯å¢ƒï¼Œä¾¿äºè€ƒç”Ÿç†Ÿæ‚‰æœºè€ƒæ“ä½œã€‚</span>
 				</div>
 				<div class="zcdiv_3">
 					<span> <img src="./index_files/wyks_19.jpg" width="76" height="26" align="absmiddle" onclick="next()" style="cursor: pointer"> </span>
-					<span class="word_3">( * Îª±ØÌîÏî)</span>
+					<span class="word_3">( * ä¸ºå¿…å¡«é¡¹)</span>
 
 				</div>
 
@@ -271,23 +271,23 @@
 			<table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="zc_tab">
 					<tbody><tr>
 						<td width="11%" height="45" align="center">
-							<h1>ÖÂ¿¼ÉúÓÃ»§µÄÒ»·âĞÅ</h1>
-<div align="left" style="width:60%;font-size:60;font-family:ËÎÌå;line-height:30px;">¸÷Î»¿¼ÉúÓÃ»§£º</div>
-<div align="left" style="width:60%;font-size:60;font-family:ËÎÌå;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;´ó¼ÒºÃ£¡</div>
-<div align="left" style="width:60%;font-size:60;font-family:ËÎÌå;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;ÎªÁË±£ÕÏÄ£Äâ¿¼ÊÔÏµÍ³ÄÜ¹»Ö§³Å¸ß²¢·¢¡¢´óÓÃ»§Á¿µÄ·ÃÎÊ£¬ÒÔ±ãÏò¹ã´ó¿¼ÉúÓÃ»§Ìá¹©Õı³£µÄ·ÃÎÊ·şÎñ£¬»ùÓÚ¹¦ÄÜĞÔ¡¢ÎÈ¶¨ĞÔ¡¢¸ßĞ§ĞÔµÈ·½Ãæ¿¼ÂÇ£¬ĞèÒªÊ¹ÓÃ¹È¸èä¯ÀÀÆ÷·ÃÎÊÏµÍ³£¬¾ßÌåËµÃ÷ÈçÏÂ£º</div>
-<div align="left" style="width:60%;font-size:60;font-family:ËÎÌå;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;1¡¢ÎªÁË±ÜÃâ¿¼ÉúµçÄÔ·ÃÎÊÏµÍ³Ê±ÒòÍøÂç²»ÎÈ¶¨ºÍÉÁ¶ÏÇé¿ö£¬¶øµ¼ÖÂµÄ²¿·Ö´ğÌâÊı¾İ¶ªÊ§ºÍÌá½»²»³É¹¦ÎÊÌâ£¬²ÉÓÃÁËÍøÂçÁ¬½ÓÊı¾İ»º´æ¼¼Êõ£¬¾­¹ıÂÛÖ¤²âÊÔ£¬ÔÚÖÚ¶àä¯ÀÀÆ÷Æ·ÅÆÖĞ£¬¹È¸èä¯ÀÀÆ÷¶Ô´Ë¼¼ÊõÖ§³ÖµÄ×îºÃ¡£</div>
-<div align="left" style="width:60%;font-size:60;font-family:ËÎÌå;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;2¡¢Ò³Ãæ¿ª·¢½Å±¾ÓïÑÔµÄ²¿·ÖÓï·¨ÔÚ¶àÆ·ÅÆä¯ÀÀÆ÷ÖĞ²»Í¨ÓÃ£¬ÌØ±ğÊÇieä¯ÀÀÆ÷×ÔÉíµÄ¶à¸ö°æ±¾¼ä¼æÈİĞÔ¾Í½ÏÎª²»ºÃ£¬ÎªÁË±£ÕÏ¹¦ÄÜÎÈ¶¨ĞÔ£¬²ÉÓÃÍ³Ò»ä¯ÀÀÆ÷·ÃÎÊ¡£</div>
-<div align="left" style="width:60%;font-size:60;font-family:ËÎÌå;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;3¡¢¹È¸èä¯ÀÀÆ÷ÓëÆäËûÆ·ÅÆä¯ÀÀÆ÷Ïà±È£¬°²×°½ÏÎªÇáÁ¿¼¶£¬À©Õ¹¹¦ÄÜµÄ¶¨ÖÆĞÔ½ÏºÃ£¬³ÌĞò°²×°Ğ¶ÔØÓë²Ù×÷ÏµÍ³¹ØÁª½ÏĞ¡¡£</div>
-<div align="left" style="width:60%;font-size:60;font-family:ËÎÌå;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;4¡¢¿¼ÊÔÏµÍ³ÊÇ×¨ÒµÏµÍ³£¬ÎªÁË±£ÕÏ¿¼ÉúÔÚÊ¹ÓÃÄ£Äâ¿¼ÊÔÏµÍ³Ê±£¬ÓëÊµ¼Ê¿¼ÊÔÏµÍ³ÔÚ¹¦ÄÜºÍ½çÃæ·½ÃæÓĞÏàÍ¬µÄÓÃ»§ÌåÑé£¬·½±ã¹ã´ó¿¼ÉúÊìÏ¤Êµ¼Ê¿¼ÊÔÏµÍ³²Ù×÷£¬Ä£Äâ¿¼ÊÔÏµÍ³Ê¹ÓÃÁËÊµ¼Ê¿¼ÊÔÏµÍ³µÄ¹¦ÄÜÊµÏÖºÍ·ÃÎÊ·½Ê½¡£</div>
-<div align="left" style="width:60%;font-size:60;font-family:ËÎÌå;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;5¡¢Ã¿ÔÂ¿¼ÊÔÖÜ£¨´ó¸ÅÎªÃ¿¸öÔÂÔÂµ××îºóÒ»ÖÜ£©£¬ÊÇÓÃ»§·ÃÎÊ¸ß·åÆÚ£¬Çë¾¡Á¿±Ü¿ª¸ß·åÆÚ£¬ÔÚÆäËûÊ±¼ä·ÃÎÊÏµÍ³£¬ÈçÓöµ½ÏµÍ³ÎŞ·¨·ÃÎÊ¡¢ÊÔ¾íÎŞ·¨Ìá½»µÈ¼¼ÊõÎÊÌâ£¬Çë²¦´ò¼¼ÊõÖ§³Öµç»°010-55573487¡£</div>
-<div align="left" style="width:60%;font-size:60;font-family:ËÎÌå;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;¸øÄú´øÀ´µÄ²»±ã¾´ÇëÁÂ½â£¡</div>
+							<h1>è‡´è€ƒç”Ÿç”¨æˆ·çš„ä¸€å°ä¿¡</h1>
+<div align="left" style="width:60%;font-size:60;font-family:å®‹ä½“;line-height:30px;">å„ä½è€ƒç”Ÿç”¨æˆ·ï¼š</div>
+<div align="left" style="width:60%;font-size:60;font-family:å®‹ä½“;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;å¤§å®¶å¥½ï¼</div>
+<div align="left" style="width:60%;font-size:60;font-family:å®‹ä½“;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;ä¸ºäº†ä¿éšœæ¨¡æ‹Ÿè€ƒè¯•ç³»ç»Ÿèƒ½å¤Ÿæ”¯æ’‘é«˜å¹¶å‘ã€å¤§ç”¨æˆ·é‡çš„è®¿é—®ï¼Œä»¥ä¾¿å‘å¹¿å¤§è€ƒç”Ÿç”¨æˆ·æä¾›æ­£å¸¸çš„è®¿é—®æœåŠ¡ï¼ŒåŸºäºåŠŸèƒ½æ€§ã€ç¨³å®šæ€§ã€é«˜æ•ˆæ€§ç­‰æ–¹é¢è€ƒè™‘ï¼Œéœ€è¦ä½¿ç”¨è°·æ­Œæµè§ˆå™¨è®¿é—®ç³»ç»Ÿï¼Œå…·ä½“è¯´æ˜å¦‚ä¸‹ï¼š</div>
+<div align="left" style="width:60%;font-size:60;font-family:å®‹ä½“;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;1ã€ä¸ºäº†é¿å…è€ƒç”Ÿç”µè„‘è®¿é—®ç³»ç»Ÿæ—¶å› ç½‘ç»œä¸ç¨³å®šå’Œé—ªæ–­æƒ…å†µï¼Œè€Œå¯¼è‡´çš„éƒ¨åˆ†ç­”é¢˜æ•°æ®ä¸¢å¤±å’Œæäº¤ä¸æˆåŠŸé—®é¢˜ï¼Œé‡‡ç”¨äº†ç½‘ç»œè¿æ¥æ•°æ®ç¼“å­˜æŠ€æœ¯ï¼Œç»è¿‡è®ºè¯æµ‹è¯•ï¼Œåœ¨ä¼—å¤šæµè§ˆå™¨å“ç‰Œä¸­ï¼Œè°·æ­Œæµè§ˆå™¨å¯¹æ­¤æŠ€æœ¯æ”¯æŒçš„æœ€å¥½ã€‚</div>
+<div align="left" style="width:60%;font-size:60;font-family:å®‹ä½“;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;2ã€é¡µé¢å¼€å‘è„šæœ¬è¯­è¨€çš„éƒ¨åˆ†è¯­æ³•åœ¨å¤šå“ç‰Œæµè§ˆå™¨ä¸­ä¸é€šç”¨ï¼Œç‰¹åˆ«æ˜¯ieæµè§ˆå™¨è‡ªèº«çš„å¤šä¸ªç‰ˆæœ¬é—´å…¼å®¹æ€§å°±è¾ƒä¸ºä¸å¥½ï¼Œä¸ºäº†ä¿éšœåŠŸèƒ½ç¨³å®šæ€§ï¼Œé‡‡ç”¨ç»Ÿä¸€æµè§ˆå™¨è®¿é—®ã€‚</div>
+<div align="left" style="width:60%;font-size:60;font-family:å®‹ä½“;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;3ã€è°·æ­Œæµè§ˆå™¨ä¸å…¶ä»–å“ç‰Œæµè§ˆå™¨ç›¸æ¯”ï¼Œå®‰è£…è¾ƒä¸ºè½»é‡çº§ï¼Œæ‰©å±•åŠŸèƒ½çš„å®šåˆ¶æ€§è¾ƒå¥½ï¼Œç¨‹åºå®‰è£…å¸è½½ä¸æ“ä½œç³»ç»Ÿå…³è”è¾ƒå°ã€‚</div>
+<div align="left" style="width:60%;font-size:60;font-family:å®‹ä½“;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;4ã€è€ƒè¯•ç³»ç»Ÿæ˜¯ä¸“ä¸šç³»ç»Ÿï¼Œä¸ºäº†ä¿éšœè€ƒç”Ÿåœ¨ä½¿ç”¨æ¨¡æ‹Ÿè€ƒè¯•ç³»ç»Ÿæ—¶ï¼Œä¸å®é™…è€ƒè¯•ç³»ç»Ÿåœ¨åŠŸèƒ½å’Œç•Œé¢æ–¹é¢æœ‰ç›¸åŒçš„ç”¨æˆ·ä½“éªŒï¼Œæ–¹ä¾¿å¹¿å¤§è€ƒç”Ÿç†Ÿæ‚‰å®é™…è€ƒè¯•ç³»ç»Ÿæ“ä½œï¼Œæ¨¡æ‹Ÿè€ƒè¯•ç³»ç»Ÿä½¿ç”¨äº†å®é™…è€ƒè¯•ç³»ç»Ÿçš„åŠŸèƒ½å®ç°å’Œè®¿é—®æ–¹å¼ã€‚</div>
+<div align="left" style="width:60%;font-size:60;font-family:å®‹ä½“;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;5ã€æ¯æœˆè€ƒè¯•å‘¨ï¼ˆå¤§æ¦‚ä¸ºæ¯ä¸ªæœˆæœˆåº•æœ€åä¸€å‘¨ï¼‰ï¼Œæ˜¯ç”¨æˆ·è®¿é—®é«˜å³°æœŸï¼Œè¯·å°½é‡é¿å¼€é«˜å³°æœŸï¼Œåœ¨å…¶ä»–æ—¶é—´è®¿é—®ç³»ç»Ÿï¼Œå¦‚é‡åˆ°ç³»ç»Ÿæ— æ³•è®¿é—®ã€è¯•å·æ— æ³•æäº¤ç­‰æŠ€æœ¯é—®é¢˜ï¼Œè¯·æ‹¨æ‰“æŠ€æœ¯æ”¯æŒç”µè¯010-55573487ã€‚</div>
+<div align="left" style="width:60%;font-size:60;font-family:å®‹ä½“;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;ç»™æ‚¨å¸¦æ¥çš„ä¸ä¾¿æ•¬è¯·è°…è§£ï¼</div>
 							
 						</td>
 						</tr>
 						<tr>
 						<td width="67%" align="left" style="color:red">
 							
-							¹È¸èä¯ÀÀÆ÷ÏÂÔØµØÖ·£º&nbsp;<a href="http://103.83.44.7/mnks/chrome/Chrome.exe">Çëµã»÷ÕâÀï</a>
+							è°·æ­Œæµè§ˆå™¨ä¸‹è½½åœ°å€ï¼š&nbsp;<a href="http://103.83.44.7/mnks/chrome/Chrome.exe">è¯·ç‚¹å‡»è¿™é‡Œ</a>
 						</td>
 					</tr>
 					</tbody></table>
