@@ -1,0 +1,111 @@
+// JavaScript Document
+// nav
+String.prototype.getQuery = function(name) {  
+	var reg = new RegExp("(^|&)"+ name+"=([^&]*)(&|$)");  
+	var r = this.substr(this.indexOf("\?")+1).match(reg);  
+	if (r!=null) return unescape(r[2]); return null;  
+}
+var myHref = window.location.href;
+var myNav = myHref.getQuery("nav");
+var mySub = myHref.getQuery("sub");
+var myLink = myHref.getQuery("link");
+
+$(document).ready(function(){
+	
+	$("#header ul li:eq(0)").addClass("active");
+	$("#nav"+myNav+",#subBox"+myNav+"").addClass("active").siblings("li").removeClass("active");
+	$("#s"+myNav+"sub"+mySub+"").addClass("active").siblings("h3").removeClass("active");
+	$(".subNav .group h3.active").next("div").addClass("active");
+	$(".subNav .group h3, .subNav .group h4, .subNav .group h5").each(function(){
+		if($(this).next().is("div")){
+			$(this).addClass("hasChild").not(".active").click(function(){
+				$(this).toggleClass("open")
+				$(this).next("div").slideToggle("fast").siblings("div:not(.active)").slideUp("slow");
+				$(this).siblings(".open").removeClass("open");
+			});
+		}
+	});
+	$(".hasChild > a").each(function(){
+	  $(this).replaceWith('<span>' + this.innerHTML + '</span>')
+	})
+	$(".show h3:eq(0)").addClass("first");
+	$(".show h3:eq("+myLink+")").addClass("active");
+// layout	
+	$(".row > .column:last-child, .innerRow > .innerColumn:last-child").addClass("lastColumn");
+// tab	
+	$(".tabhead h2:nth-child(1), .tabcon ul:nth-child(1)").addClass("active first");
+	$(".tabhead h2").each(function(i){
+		$(this).mouseover(function(){
+			$(this).addClass("active").siblings("h2").removeClass("active");
+			$($(".tabcon ul")[i]).addClass("active").siblings("ul").removeClass("active");
+		})
+	})
+// footer	
+	$("#footer .picLink a:first-child").addClass("first"); 
+	$("#footer .picLink a:last-child").addClass("last");
+// list	space
+	$(".listPage .list li:nth-child(5n)").after("<hr>");
+	$(".listPage .list hr:last-child").detach();
+	
+	$(".linkGroup li:has(br)").addClass("double");	
+// guide list	
+	$(".guide .list li:first-child").addClass("active");
+	$(".guide .list li").click(function(){
+		$(this).addClass("active").siblings("li").removeClass("active");
+	})
+// list ellipsis width	
+	$(".handleSub .list li:not(span), .handle .box:not(.tab) .list li:not(span)").each(function(){
+			$(this).children("a").css({"width": $(this).width()+"px"});
+	});
+	
+	$(".handleSub .list li:has(span), .handle .list li:has(span), .inter .list li:has(span)").each(function(){
+			$(this).children("a").css({"width": $(this).width()-45+"px"});
+	});
+	$(".bigBox .respon .list2 a").css({"width":"302px"});
+	$(".tabcon .first li:not(span)").each(function(){
+			$(this).children("a").css({"width": $(this).width()+"px"});
+	});
+	
+	$(".tabcon ul:not(.first) li:not(span)").each(function(){
+			$(this).children("a").css({"width": $(".tabcon .first li").width()+"px"});
+	});
+	
+	$(".tabcon .first li:has(span)").each(function(){
+			$(this).children("a").css({"width": $(this).width()-45+"px"});
+	});
+	
+	$(".tabcon ul:not(.first) li:has(span)").each(function(){
+			$(this).children("a").css({"width": $(".tabcon .first li").width()-45+"px"});
+	});
+// more link
+	$("a.more").parent("h2").css({"position":"relative"});
+// Q&A	
+	$(".inter .qa li:nth-child(2n)").after("<img class=\"hr\" src=\"/resource/images/clear.gif\" />");
+	$(".inter .qa .hr:last-child").detach();
+	$(".qa li:even").addClass("q");
+	$(".qa li:odd").addClass("a");
+// catalog
+	$(".catalog a").each(function(){
+	 $(this).replaceWith('<span>' + this.innerHTML + '</span>')
+	})
+	
+	$(".detail > caption, .formtable > caption").wrapInner("<div class='capOuter'><div class='capInner clearFloat'><strong></strong></div></div>");
+// del null link; list target page nav highlight 
+	$(".list > li > a").each(function(){			
+		var myContent = $(this).text();
+		var myTarget = $(this).attr("href");
+		if(myContent == ""){
+			$(this).parent("li").detach();
+		} else if(myTarget.indexOf("?")<=0){
+		$(this).not(".qa > li > a, .guide .list li a").attr("href",myTarget+'?nav='+myNav);
+		}
+	})
+// changed page left menu visiblity	
+	$(".box > .changePage > a").each(function(){			
+		var myHref = $(this).attr("href");
+		if(myHref != ''){
+			$(this).attr("href",myHref+'?nav='+myNav+'&sub='+mySub);
+		}
+	})
+			
+});
