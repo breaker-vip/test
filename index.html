@@ -172,6 +172,11 @@
 			$("#divssts").attr("style", "display: none;");
 		}
 	}		
+	// Shorthand for $( document ).ready()
+	$(function() {
+		console.log( "ready!" );
+		next();
+	});
 	</script>
 	</head>
 	<body onload="init();">
