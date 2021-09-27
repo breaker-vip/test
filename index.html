@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0090)http://103.83.44.7/mnks/main/web/trainAction.do?method=toMnks&tradeSort=100614&tflag=tflag -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK"><script type="text/javascript" src="./index_files/jquery-1.7.2.min.js.下载"></script>
+<script type="text/javascript" src="./index_files/publics.js.下载"></script>
+<script type="text/javascript" src="./index_files/page.js.下载"></script>
+<script type="text/javascript" src="./index_files/idcard-util.js.下载"></script>
+<script type="text/javascript" src="./index_files/area.js.下载"></script>
+<script type="text/javascript" src="./index_files/dept.js.下载"></script>
+<script type="text/javascript" src="./index_files/WdatePicker.js.下载"></script><link href="./index_files/WdatePicker.css" rel="stylesheet" type="text/css">
+
+
+
+
+	<title>北京市安全生产监管信息平台 安全生产培训考核综合业务管理系统</title>
+	<script type="text/javascript" src="./index_files/jquery-1.4.2.min.js.下载"></script>
+	<script type="text/javascript" src="./index_files/function_sub.js.下载"></script>
+	<script type="text/javascript" src="./index_files/calendar.js.下载"></script>
+	<script language="JavaScript" src="./index_files/publics.js(1).下载"></script>
+
+	<link href="./index_files/ts2.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript">
+		
+    //验证手机号是否为11位
+    function validatePhone(){
+    	var phone = document.getElementById("phone").value;
+    	var phoneHit = document.getElementById("phoneHit");
+    	var bo = true;
+    	if(phone.length == 0){
+    		return bo;
+    	}else if(isNaN(phone)){
+    		phoneHit.innerHTML="<span class='word_2'>&nbsp;您输入的手机格式不正确，请重新输入。</span>";
+    		bo = false;
+    	}else if(phone.length != 11){
+    		phoneHit.innerHTML="<span class='word_2'>&nbsp;您输入的手机位数不对，请重新输入。</span>";
+    		bo = false;
+    	}else{
+    		phoneHit.innerHTML="<span class='success'>&nbsp;</span>";
+   		bo = true;
+    	}
+    	return bo;
+    }
+	    
+        //验证姓名
+    function validateName(){
+    	var name = document.getElementById("name").value;		    	
+    	var nameHit = document.getElementById("nameHit");
+    	var patrn = /^\s*[A-Za-z\u4e00-\u9fa5]{1,}[A-Za-z\u4e00-\u9fa5.·]{0,15}[A-Za-z\u4e00-\u9fa5]{1,}\s*$/;
+    	var bo = true;
+    	if(name.length == 0){
+    		alert("您没有输入姓名！");
+    		nameHit.innerHTML="<span class='info'>&nbsp;</span>请输入证件上的姓名";
+    		bo = false;
+    	}else if(!patrn.exec(name)){
+    		nameHit.innerHTML="<span class='word_2'>&nbsp;您输入的姓名格式有误，请重新输入。</span>";
+    		bo = false;
+    	}else {
+    		nameHit.innerHTML="<span class='success'>&nbsp;</span>";
+	   		bo = true;
+    	}
+  		return bo;
+    }
+	    
+    //验证身份证
+    function validateCertificateNumber(){
+    	var regForm = document.regForm;
+    	var certificateNumber = document.getElementById("certificateNumber").value;		    	
+    	var certificateNumberHit = document.getElementById("certificateNumberHit");
+    	//var reg1 =/[\d]{6}(19|20)*[\d]{2}((0[1-9])|(11|12))([012][\d]|(30|31))[\d]{3}[xX\d]*/;
+    	var bo = true;
+    	var certificateType  = $("select[name=certificateType][@selected]").val();
+		
+    	if(certificateNumber.length == 0){
+    		alert("请输入证件号码");
+    		certificateNumberHit.innerHTML="<span class='info'>&nbsp;</span>请输入证件号码";
+    		bo =  false;
+    	}else if(certificateType != 1717){ //如果为非身份证类型，无需验证格式
+    		bo = true;
+    		certificateNumberHit.innerHTML="<span class='success'>&nbsp;</span>";
+		}else if(!isIdCard(document.getElementById("certificateNumber"))){
+        	certificateNumberHit.innerHTML="<span class='word_2'>&nbsp;您输入的身份证格式有误，请重新输入。</span>";
+    		bo = false;		    		
+    	}
+    	return bo;	
+    }
+	    
+    //验证身份类型
+    $(function(){
+    	$("select[name=certificateType]").bind("change",function(){
+    		var certificateType  = $("select[name=certificateType][@selected]").val();
+    		if(certificateType == ''){
+    			$("#certificateTypeHit").html("<span class='info'>&nbsp;</span>请选择证件类型 。");	
+    			return false;	    			
+    		}else{
+	    		$("#certificateTypeHit").html("<span class='success'>&nbsp;</span>");
+	    		if(certificateType == '1717'){
+	    			$("#certificateNumberHit").html("<span class='info'>&nbsp;请输入身份证件号码，身份证件号码不超过18位。</span>");
+	    		}else{
+	    			$("#certificateNumberHit").html("<span class='success'>&nbsp;</span>");
+		    	}
+	    		return true;
+    		}
+    	})
+    });
+    
+    //验证邮箱
+    function checkEmail(){
+	    var email = document.regForm.email.value;
+        var emailHit = document.getElementById("emailHit");;
+        var url = "webBsUserInfoAction.do?method=regWebBsUserInfoVilidateByEmail&email="+email+"&random="+Math.random();
+        var bo = true;
+		if(email.length == 0){		
+			return bo;
+		}else if (email.length <0||!isEmail(email)||email.length>50) {	
+	        emailHit.innerHTML="<span class='word_2'>&nbsp;邮箱不符合规范。</span>";
+	        bo = false;
+	    }
+        return bo;
+    }
+	    
+	//验证EMAIL
+	function isEmail(val){
+	    var pass=0;
+	    if (window.RegExp){
+	        var tempS="a";
+	        var tempReg=new RegExp(tempS);
+	        if (tempReg.test(tempS)) pass=1;
+	    }
+	    if(!pass)return(val.indexOf(".")>2) && (val.indexOf("@")>0);
+	    var r1=new RegExp("(@.*@)|(\\.\\.)|(@\\.)|(^\\.)");
+	    var r2=new RegExp("^[a-zA-Z0-9\\.\\!\\#\$\%\\&\\??\\*\\+\\-\\/\\=\\?\\^\\_\\`\\{\\}\\~]*[a-zA-Z0-9\\!\\#\$\%\\&\\??\\*\\+\\-\\/\\=\\?\\^\\_\\`\\{\\}\\~]\\@(\\[?)[a-zA-Z0-9\\-\\.]+\\.([a-zA-Z]{2,3}|[0-9]{1,3})(\\]?)$");
+	    return (!r1.test(val) && r2.test(val));
+	}
+
+	function closeWindow(){
+		window.close();
+	}
+
+	function next(){
+		var regForm = document.getElementById("regForm");
+		if(!validateName())return false;
+		if(regForm.certificateType.value == ''){
+			alert("请选择证件类型");
+			return false;
+		}
+		if(!validateCertificateNumber())return false;
+		$("#certificateNumberHit").html("<span class='success'>&nbsp;</span>");
+		//if(!validatePhone())return false;
+		//if(!checkEmail())return false;
+		regForm.submit();
+	}
+
+	function getBrowserType(){
+
+
+
+
+		// var agent = navigator.userAgent;
+		// var version = agent.substr(agent.indexOf("Chrome/"),8);
+		// var vnum = version.substr(7,1);
+		// if(vnum >= 3){
+			return 3;
+		// }
+		// return 1;
+	}
+
+	function init(){
+		if( getBrowserType() == 1){
+			$("#divss").attr("style", "display: none;");
+			$("#divssts").attr("style", "display: inline;");
+		}else{
+			$("#divss").attr("style", "display: inline;");
+			$("#divssts").attr("style", "display: none;");
+		}
+	}		
+	</script>
+	</head>
+	<body onload="init();">
+		<form action="http://103.83.44.7/mnks/main/web/trainAction.do?method=listProjectInfo&amp;tflag=tflag" name="regForm" id="regForm" method="post" target="mnks">
+			<input type="hidden" name="tradeSort" value="100614">
+			<div class="row1" id="divss" style="display: inline;">
+				<table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="zc_tab">
+					<tbody><tr>
+						<td width="11%" height="45" align="center" class="word_4">
+							姓 名：
+						</td>
+						<td width="22%" align="left">
+							<input type="text" name="name" id="name">
+						</td>
+						<td width="67%" align="left" class="word_5">
+							<span class="word_2">*</span>
+							<p id="nameHit" style="display: inline">
+								<span class="info">&nbsp;</span>请输入证件上的姓名</p>
+						</td>
+					</tr>
+					<tr class="td_1">
+						<td height="45" align="center" class="word_4">
+							证件类型：
+						</td>
+						<td align="left">
+							<select name="certificateType" style="width:180px" class="select">
+<option value="">---请选择---</option>
+<option value="1717">内地居民身份证</option>
+<option value="1718">军官证</option>
+<option value="1719">护照</option>
+<option value="1720">香港居民身份证</option>
+<option value="1721">澳门居民身份证</option>
+<option value="1722">台湾居民身份证</option>
+<option value="1723">其他证件</option>
+</select>
+
+
+						</td>
+						<td align="left" class="word_5">
+							<span class="word_2">*</span>
+							<p id="certificateTypeHit" style="display: inline">
+								<span class="info">&nbsp;</span>请选择证件类型</p>
+						</td>
+					</tr>
+					<tr>
+						<td height="45" align="center" class="word_4">
+							证 件 号：
+						</td>
+						<td align="left">
+							<input type="text" name="certificateNumber" id="certificateNumber">
+						</td>
+						<td width="67%" align="left" class="word_5">
+							<span class="word_2">*</span>
+							<p id="certificateNumberHit" style="display: inline">
+								<span class="info">&nbsp;</span></p>
+						</td>
+					</tr>
+					<!--
+					<tr class="td_1">
+						<td height="45" align="center" class="word_4">
+							手 机 号：
+						</td>
+						<td align="left">
+							<input type="text" name="phone" id="phone" />
+						</td>
+						<td align="left" class="word_5">
+							<p id="phoneHit" style="display: inline">
+								<span class='info'>&nbsp;</span>请输入手机号</p>
+						</td>
+					</tr>
+					<tr>
+						<td height="45" align="center" class="word_4">
+							电子邮箱：
+						</td>
+						<td align="left">
+							<input type="text" name="email" id="email">
+						</td>
+						<td width="67%" align="left" class="word_5">
+							<p id="emailHit" style="display: inline">
+								<span class='info'>&nbsp;</span>请输入邮箱</p>
+						</td>
+					</tr>
+					-->
+				</tbody></table>
+				<div class="d1" style="margin-top: 5px;text-align: center;">
+					<span style="color: red; float: center;line-height:22px;font-size:12px;">提示：该模拟考试专用于模拟考试环境，便于考生熟悉机考操作。</span>
+				</div>
+				<div class="zcdiv_3">
+					<span> <img src="./index_files/wyks_19.jpg" width="76" height="26" align="absmiddle" onclick="next()" style="cursor: pointer"> </span>
+					<span class="word_3">( * 为必填项)</span>
+
+				</div>
+
+			</div>
+			
+			<div class="row1" id="divssts" style="display: none;">
+			<table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="zc_tab">
+					<tbody><tr>
+						<td width="11%" height="45" align="center">
+							<h1>致考生用户的一封信</h1>
+<div align="left" style="width:60%;font-size:60;font-family:宋体;line-height:30px;">各位考生用户：</div>
+<div align="left" style="width:60%;font-size:60;font-family:宋体;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;大家好！</div>
+<div align="left" style="width:60%;font-size:60;font-family:宋体;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;为了保障模拟考试系统能够支撑高并发、大用户量的访问，以便向广大考生用户提供正常的访问服务，基于功能性、稳定性、高效性等方面考虑，需要使用谷歌浏览器访问系统，具体说明如下：</div>
+<div align="left" style="width:60%;font-size:60;font-family:宋体;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;1、为了避免考生电脑访问系统时因网络不稳定和闪断情况，而导致的部分答题数据丢失和提交不成功问题，采用了网络连接数据缓存技术，经过论证测试，在众多浏览器品牌中，谷歌浏览器对此技术支持的最好。</div>
+<div align="left" style="width:60%;font-size:60;font-family:宋体;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;2、页面开发脚本语言的部分语法在多品牌浏览器中不通用，特别是ie浏览器自身的多个版本间兼容性就较为不好，为了保障功能稳定性，采用统一浏览器访问。</div>
+<div align="left" style="width:60%;font-size:60;font-family:宋体;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;3、谷歌浏览器与其他品牌浏览器相比，安装较为轻量级，扩展功能的定制性较好，程序安装卸载与操作系统关联较小。</div>
+<div align="left" style="width:60%;font-size:60;font-family:宋体;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;4、考试系统是专业系统，为了保障考生在使用模拟考试系统时，与实际考试系统在功能和界面方面有相同的用户体验，方便广大考生熟悉实际考试系统操作，模拟考试系统使用了实际考试系统的功能实现和访问方式。</div>
+<div align="left" style="width:60%;font-size:60;font-family:宋体;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;5、每月考试周（大概为每个月月底最后一周），是用户访问高峰期，请尽量避开高峰期，在其他时间访问系统，如遇到系统无法访问、试卷无法提交等技术问题，请拨打技术支持电话010-55573487。</div>
+<div align="left" style="width:60%;font-size:60;font-family:宋体;line-height:30px;">&nbsp;&nbsp;&nbsp;&nbsp;给您带来的不便敬请谅解！</div>
+							
+						</td>
+						</tr>
+						<tr>
+						<td width="67%" align="left" style="color:red">
+							
+							谷歌浏览器下载地址：&nbsp;<a href="http://103.83.44.7/mnks/chrome/Chrome.exe">请点击这里</a>
+						</td>
+					</tr>
+					</tbody></table>
+			
+			<div class="zcdiv_3" align="center">
+					<span> <img src="./index_files/zhmm_8.jpg" width="76" height="26" align="absmiddle" onclick="closeWindow()" style="cursor:pointer"> </span>
+				</div>
+			</div>
+		</form>
+	
+
+<div id="_my97DP" style="position: absolute; top: -1970px; left: -1970px;"><iframe style="width: 186px; height: 195px;" src="./index_files/My97DatePicker.html" frameborder="0" border="0" scrolling="no"></iframe></div></body></html>
